@@ -8,18 +8,18 @@ import io.cucumber.junit.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		features = {
-			"src/test/resources/features"
+			"src/test/resources/features" // Path to feature files
 		},
 		glue= {
-			"com.apvg.stepdefinitions"	
+			"com.apvg.stepdefinitions"	 // Package for step definitions
 		},
 		plugin= {
-			"pretty",
-			"html:target/results/test.html",
-			"json:target/json/results.json",
-			"junit:target/junit/cucumber.xml"
+			"pretty",											// Console output
+			"html:target/cucumber-reports/CucumberReport.html",	// HTML Report
+			"json:target/cucumber-reports/CucumberReport.json", // JSON Report
+			"junit:target/cucumber-reports/CucumberReport.xml"	// JUnit Report
 		},
-		monochrome=true,
+		monochrome=true,										// Improves readability in console
 		tags = "@sanity or @regression"
 )
 public class TestRunner {

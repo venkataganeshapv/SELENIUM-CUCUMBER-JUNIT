@@ -15,18 +15,29 @@ public class Login {
 	
 	@Before
 	public void setup() {
-		System.out.println("Before");
+		
+		System.out.println("*** Start: WebDriver instance create.");
+		
 		driver = new ChromeDriver();
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 		driver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
+		
+		System.out.println("*** End: WebDriver instance created.");
 	}
 	
 	@Given("Launch Url and Navigate to Login page")
 	public void launch_url_and_navigate_to_login_page() throws InterruptedException {
-		System.out.println("Hi");
+		
 		driver.navigate().to("https://ecommerce-playground.lambdatest.io/");
-		Thread.sleep(15000);
+		
+		String url = driver.getCurrentUrl();
+		String pageTitle = driver.getTitle();
+		
+		System.out.println("*** url: "+url);
+		System.out.println("*** pageTitle: "+pageTitle);
+		
+		Thread.sleep(10000);
 	}
 
 	@When("Enter {string} and {string} in login page")
@@ -67,9 +78,13 @@ public class Login {
 	@After
 	public void tearDown() {
 		
+		System.out.println("*** Start: WebDriver instance - Closing browsers and Quit Driver.");
+		
 		driver.close();
 		
 		driver.quit();
+		
+		System.out.println("*** End: WebDriver instance - Closed browsers and Quit Driver.");
 	}
 
 }
