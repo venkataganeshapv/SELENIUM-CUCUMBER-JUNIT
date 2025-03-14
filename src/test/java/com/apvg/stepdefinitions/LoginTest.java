@@ -9,7 +9,7 @@ import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.*;
 
-public class Login {
+public class LoginTest {
 	
 	WebDriver driver;
 	
@@ -37,7 +37,7 @@ public class Login {
 		System.out.println("*** url: "+url);
 		System.out.println("*** pageTitle: "+pageTitle);
 		
-		Thread.sleep(10000);
+		Thread.sleep(3000);
 	}
 
 	@When("Enter {string} and {string} in login page")
@@ -76,11 +76,13 @@ public class Login {
 	}
 	
 	@After
-	public void tearDown() {
+	public void tearDown() throws InterruptedException {
 		
 		System.out.println("*** Start: WebDriver instance - Closing browsers and Quit Driver.");
 		
-		driver.close();
+		//driver.close();
+		
+		//Thread.sleep(2000);		
 		
 		driver.quit();
 		

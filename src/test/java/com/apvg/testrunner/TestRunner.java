@@ -15,9 +15,9 @@ import io.cucumber.junit.CucumberOptions;
 		},
 		plugin= {
 			"pretty",											// Console output
-			"html:target/cucumber-reports/CucumberReport.html",	// HTML Report
-			"json:target/cucumber-reports/CucumberReport.json", // JSON Report
-			"junit:target/cucumber-reports/CucumberReport.xml"	// JUnit Report
+			"html:target/cucumber-reports/cucumber.html",	// HTML Report
+			"json:target/cucumber-reports/cucumber.json", // JSON Report
+			"junit:target/cucumber-reports/cucumber.xml"	// JUnit Report
 		},
 		monochrome=true,										// Improves readability in console
 		tags = "@sanity or @regression"
